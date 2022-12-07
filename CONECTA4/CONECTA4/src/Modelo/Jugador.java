@@ -1,3 +1,5 @@
+package Modelo;
+
 public class Jugador {
     private char color;
     private Tablero tablero;
@@ -6,6 +8,11 @@ public class Jugador {
         this.color=color;
         this.tablero=tablero;
     }
+
+    public Turno turnoColor(Turno turno){
+        return turno.generarColor(turno);
+    }
+
     public void setTablero(Tablero tablero){
         this.tablero=tablero;
     }
@@ -13,15 +20,4 @@ public class Jugador {
         return this.tablero;
     }
 
-
-    public void poner() {
-        Console console = new Console();
-        int aux;
-       do{
-           System.out.println("Elige columna para poner ficha: ");
-           aux = console.leer();
-       }while(!tablero.validarColumna(aux));
-       aux--;
-        tablero.setCasillas(tablero.elegirFila(aux),aux,this.color);
-    }
 }
